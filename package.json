@@ -13,21 +13,18 @@
   "build": {
     "appId": "com.mile.board",
     "productName": "Mile Board Desktop",
-    "directories": { "output": "dist" },
-    "publish": null,
+    "directories": {
+      "output": "dist"
+    },
     "win": {
-      "target": [
-        {
-          "target": "nsis",
-          "arch": ["ia32"]
-        }
-      ],
+      "target": "nsis",
       "icon": "icon.ico"
     },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "runAfterFinish": true
-    }
+    },
+    "publish": null
   }
 }
