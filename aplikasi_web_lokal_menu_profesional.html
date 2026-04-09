@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Monitoring Dashboard (Viewer URL)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white font-sans flex flex-col h-screen">
+
+<!-- TOP MENU BAR -->
+<header class="bg-gray-900 px-6 py-3 flex justify-between items-center shadow-lg text-sm">
+  <div class="flex items-center gap-6">
+    <span class="font-bold text-lg">🚚 OPS MONITOR</span>
+
+    <!-- LOGIN -->
+    <button onclick="loadURL('login.html','Login')" class="hover:text-yellow-400">Login</button>
+
+    <!-- MANIFEST -->
+    <button onclick="loadURL('#','Manifest R7')" class="hover:text-yellow-400">Manifest R7</button>
+
+    <!-- DISTRIBUSI DROPDOWN -->
+    <div class="relative group">
+      <button onclick="loadURL('https://example.com/manifest','Manifest R7')" class="hover:text-yellow-400">Manifest R7</button>
+      <button onclick="loadURL('disttimur.html','Distribusi')" class="hover:text-yellow-400">Distribusi</button>
+      <button onclick="loadURL('https://example.com/pool','Pool')" class="hover:text-yellow-400">Pool</button>
+      <button onclick="loadURL('https://example.com/tracking','Tracking')" class="hover:text-yellow-400">Tracking</button>
+      <button onclick="loadURL('https://example.com/pickup','Pickup')" class="hover:text-yellow-400">Pickup</button>
+    </div>
+
+    <!-- TRACKING (NO SUBMENU) -->
+    <button onclick="loadURL('disttimur.html','Tracking Kiriman')" class="hover:text-yellow-400">Tracking</button>
+
+    <!-- PICKUP (NO SUBMENU) -->
+    <button onclick="loadURL('#','Pickup PosAja')" class="hover:text-yellow-400">Pickup PosAja</button>
+
+  </div>
+
+  <div>
+    <span>Admin</span>
+  </div>
+</header>
+
+<!-- VIEWER AREA (IFRAME) -->
+<main class="flex-1 bg-gray-800">
+  <iframe id="viewer" src="disttimur.html" class="w-full h-full border-none"></iframe>
+</main>
+
+<!-- STATUS BAR -->
+<footer class="bg-gray-900 px-6 py-2 flex justify-between text-sm">
+  <div id="status">Status: Login</div>
+  <div id="clock"></div>
+</footer>
+
+<script>
+function loadURL(url, name) {
+  document.getElementById('viewer').src = url;
+  document.getElementById('status').innerText = 'Status: ' + name;
+}
+
+// Clock realtime
+function updateClock() {
+  const now = new Date();
+  document.getElementById('clock').innerText = now.toLocaleString();
+}
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+</body>
+</html>
