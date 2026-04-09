@@ -13,7 +13,7 @@ function createWindow() {
     }
   });
 
-  win.loadURL('https://board.mile.app');
+  win.loadURL('aplikasi_web_lokal_menu_profesional.html');
 }
 
 app.whenReady().then(createWindow);
